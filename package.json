@@ -1,0 +1,25 @@
+{
+  "name": "backend-node-express_platzi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "lint": "eslint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.13",
+    "prettier": "^2.4.1"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "faker": "5.5.3"
+  }
+}
