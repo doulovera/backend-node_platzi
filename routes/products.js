@@ -14,11 +14,15 @@ router.get('/filter', (req, res) => {
   res.send('Soy un filtro falso :)')
 })
 
-router.get('/:id', async (req, res) => {
-  const { id } = req.params;
-  const product = await service.findOne(id);
+router.get('/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const product = await service.findOne(id);
 
-  res.json(product)
+    res.json(product)
+  } catch (err) {
+    next(err)
+  }
 })
 
 router.post('/', async (req, res) => {
@@ -28,7 +32,7 @@ router.post('/', async (req, res) => {
   res.status(201).json(newProduct)
 })
 
-router.patch('/:id', async (req, res) => {
+router.patch('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
     const body = req.body;
@@ -36,9 +40,7 @@ router.patch('/:id', async (req, res) => {
 
     res.json(product)
   } catch (err) {
-    res.status(404).json({
-      message: err.message
-    })
+    next(err)
   }
 })
 
