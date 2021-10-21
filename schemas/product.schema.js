@@ -2,9 +2,9 @@ const Joi = require('joi');
 
 // Declaramos primero los valores que vamos a recibir
 const id = Joi.string().uuid();
-const name = Joi.string().alphanum().min(3).max(20);
+const name = Joi.string().min(3).max(20);
 const price = Joi.number().integer().min(10);
-const image = Joi.string().alphanum().min(8);
+const image = Joi.string().uri();
 
 const createProductSchema = Joi.object({
   id,
@@ -14,7 +14,7 @@ const createProductSchema = Joi.object({
 })
 
 const updateProductSchema = Joi.object({
-  id: id.required(),
+  id,
   name,
   price,
   image,

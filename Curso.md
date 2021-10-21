@@ -109,3 +109,11 @@ class ProductsService {
 
 }
 ```
+
+# Recomendaciones para producción
+- Cors
+- Https
+- Procesos de Build
+- Remover logs
+- Seguridad (Helmet)
+- Testing
